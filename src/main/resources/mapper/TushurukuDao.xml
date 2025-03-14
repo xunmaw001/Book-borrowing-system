@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.TushurukuDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.TushurukuEntity" id="tushurukuMap">
+        <result property="tushumingcheng" column="tushumingcheng"/>
+        <result property="tushufenlei" column="tushufenlei"/>
+        <result property="zuozhe" column="zuozhe"/>
+        <result property="chubanshe" column="chubanshe"/>
+        <result property="shuliang" column="shuliang"/>
+        <result property="rukuleixing" column="rukuleixing"/>
+        <result property="dengjiriqi" column="dengjiriqi"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.TushurukuVO" >
+		SELECT * FROM tushuruku  tushuruku         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.TushurukuVO" >
+		SELECT  tushuruku.* FROM tushuruku  tushuruku 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.TushurukuView" >
+
+		SELECT  tushuruku.* FROM tushuruku  tushuruku 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.TushurukuView" >
+		SELECT * FROM tushuruku  tushuruku <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
